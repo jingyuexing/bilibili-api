@@ -213,7 +213,8 @@ class Video:
             raise ArgsException("分 p 号必须大于或等于 0。")
 
         info = await self.__get_info_cached()
-        pages = info["pages"]
+        if("pages" in info.keys()):
+            pages = info["pages"]
 
         if len(pages) <= page_index:
             raise ArgsException("不存在该分 p。")
